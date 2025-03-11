@@ -1,6 +1,5 @@
-package com.alejandra.decompose.sample
+package com.alejandra.decompose.sample.navigation
 
-import com.alejandra.decompose.sample.navigation.ScreenAEvent
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import com.arkivanov.decompose.value.Value
@@ -8,14 +7,13 @@ import com.arkivanov.decompose.value.Value
 class ScreenAComponent(
     componentContext: ComponentContext,
     private val onNavigateToScreenB: (String) -> Unit
-) : ComponentContext by componentContext {
-
+): ComponentContext by componentContext {
 
     private var _text = MutableValue("")
     val text: Value<String> = _text
 
     fun onEvent(event: ScreenAEvent) {
-        when (event) {
+        when(event) {
             ScreenAEvent.ClickButtonA -> onNavigateToScreenB(text.value)
             is ScreenAEvent.UpdateText -> {
                 _text.value = event.text

@@ -1,14 +1,14 @@
-package com.alejandra.decompose.sample
+package com.alejandra.decompose.sample.navigation
 
 import com.arkivanov.decompose.ComponentContext
 
 class ScreenBComponent(
     val text: String,
     componentContext: ComponentContext,
-    private val onGoBack : () -> Unit
-) : ComponentContext by componentContext {
+    private val onGoBack: () -> Unit
+): ComponentContext by componentContext {
 
-    fun goBack(){
+    fun goBack() {
         onGoBack()
     }
 }
